@@ -32,29 +32,30 @@ class _HomeRouteState extends State<HomeRoute> {
   @override
   Widget build(BuildContext context) {
     return NavigationView(
+      contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       appBar: NavigationAppBar(
         title: MoveWindow(
           child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Secure Folder',
-              style: TextStyle(fontFamily: 'Segoe'),
-            ),
-          ),
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Text(
+                  'Secure Folder',
+                ),
+              )),
         ),
         automaticallyImplyLeading: false,
-        actions: MoveWindow(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Spacer(), WindowButtons()],
-          ),
-        ),
+        // actions: MoveWindow(
+        //   child: Row(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [Spacer(), WindowButtons()],
+        //   ),
+        // ),
       ),
       pane: NavigationPane(
         selected: index,
         onChanged: (i) => setState(() => index = i),
         items: [
-          PaneItemSeparator(),
           PaneItem(
             icon: Icon(FluentIcons.new_folder),
             title: Text('Make a new folder'),
@@ -65,10 +66,8 @@ class _HomeRouteState extends State<HomeRoute> {
           ),
         ],
         footerItems: [
-          PaneItemSeparator(),
           PaneItem(icon: Icon(FluentIcons.help), title: Text('Help')),
           PaneItem(icon: Icon(FluentIcons.settings), title: Text('Settings')),
-          PaneItemSeparator()
         ],
       ),
       content: NavigationBody(

@@ -23,8 +23,7 @@ class NewPage extends StatelessWidget {
                 child: Icon(FluentIcons.new_folder),
                 onPressed: () => print(''),
                 style: ButtonStyle(
-                    backgroundColor:
-                        ButtonState.all(Color.fromARGB(255, 0, 0, 0))),
+                    backgroundColor: ButtonState.all(Colors.transparent)),
               ),
             ),
           )

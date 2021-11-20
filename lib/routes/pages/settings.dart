@@ -22,6 +22,8 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  void onChanged(Object? value) {}
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
@@ -35,34 +37,30 @@ class _SettingsPageState extends State<SettingsPage> {
       content: Padding(
         padding: EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Container(
-          child: ListView(
+          child: Column(
             children: [
               Flexible(
+                  child: Mica(
                 child: ListTile(
                   leading: Icon(FluentIcons.color),
                   title: Text('Change theme'),
-                  // trailing: Combobox(
-                  //   isExpanded: true,
-                  //   value: comboBoxValue,
-                  //   // onChanged: (value) {
-                  //   //   if (value != null)
-                  //   //     setState(() {
-                  //   //       comboBoxValue = value.toString();
-                  //   //     });
-                  //   // },
-                  //   items: [
-                  //     ComboboxItem(
-                  //       child: Text('Heleko'),
-                  //       onTap: () => print(''),
-                  //     ),
-                  //     ComboboxItem(
-                  //       child: Text('Heleko'),
-                  //       onTap: () => print(''),
-                  //     ),
-                  //   ],
-                  // ),
+                  trailing: Combobox(
+                    // isExpanded: true,
+                    value: comboBoxValue,
+                    // onChanged: (value) => onChanged(value),
+                    items: [
+                      ComboboxItem(
+                        child: Text('Heleko'),
+                        onTap: () => print(''),
+                      ),
+                      ComboboxItem(
+                        child: Text('Heleko'),
+                        onTap: () => print(''),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              )),
             ],
           ),
         ),
