@@ -1,11 +1,12 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_acrylic/flutter_acrylic.dart';
+import 'package:provider/provider.dart';
+import 'package:secure_folder/models/theme.dart';
 import 'package:secure_folder/routes/pages/add.dart';
 import 'package:secure_folder/routes/pages/new.dart';
 import 'package:secure_folder/routes/pages/help.dart';
 import 'package:secure_folder/routes/pages/settings.dart';
+import 'package:secure_folder/widgets/pane_item.dart';
 import 'package:secure_folder/widgets/window_titlebar_buttons.dart';
 
 class HomeRoute extends StatefulWidget {
@@ -14,71 +15,79 @@ class HomeRoute extends StatefulWidget {
 }
 
 class _HomeRouteState extends State<HomeRoute> {
-  int? index;
+  int index = 0;
 
   @override
   void initState() {
     super.initState();
-    this.setWindowEffect();
-  }
-
-  void setWindowEffect() {
-    Window.setEffect(
-      effect: WindowEffect.mica,
-      dark: true,
-    );
+    ThemeModel().setWindowEffect('dark');
   }
 
   @override
   Widget build(BuildContext context) {
-    return NavigationView(
-      contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-      appBar: NavigationAppBar(
-        title: MoveWindow(
-          child: Align(
+    return Consumer<ThemeModel>(builder: (context, model, child) {
+      return NavigationView(
+        contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        appBar: NavigationAppBar(
+          height: 36,
+          title: MoveWindow(
+            child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
                   'Secure Folder',
                 ),
-              )),
+              ),
+            ),
+          ),
+          automaticallyImplyLeading: false,
+          actions: MoveWindow(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Spacer(), WindowButtons()],
+            ),
+          ),
         ),
-        automaticallyImplyLeading: false,
-        // actions: MoveWindow(
-        //   child: Row(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [Spacer(), WindowButtons()],
-        //   ),
-        // ),
-      ),
-      pane: NavigationPane(
-        selected: index,
-        onChanged: (i) => setState(() => index = i),
-        items: [
-          PaneItem(
-            icon: Icon(FluentIcons.new_folder),
-            title: Text('Make a new folder'),
-          ),
-          PaneItem(
-            icon: Icon(FluentIcons.add_in),
-            title: Text('Add files to folder'),
-          ),
-        ],
-        footerItems: [
-          PaneItem(icon: Icon(FluentIcons.help), title: Text('Help')),
-          PaneItem(icon: Icon(FluentIcons.settings), title: Text('Settings')),
-        ],
-      ),
-      content: NavigationBody(
-        index: index ?? 0,
-        children: [
-          NewPage(),
-          AddPage(),
-          HelpPage(),
-          SettingsPage(),
-        ],
-      ),
-    );
+        pane: NavigationPane(
+          header: SizedBox.shrink(),
+          selected: index,
+          onChanged: (i) => setState(() => index = i),
+          items: [
+            PaneItemWidget(
+              icon: Icon(FluentIcons.new_folder),
+              title: Text('Make a new folder'),
+              isSelected: false,
+            ),
+            PaneItemWidget(
+              icon: Icon(FluentIcons.add_in),
+              title: Text('Add files to folder'),
+              isSelected: false,
+            ),
+          ],
+          footerItems: [
+            PaneItemWidget(
+              icon: Icon(FluentIcons.help),
+              title: Text('Help'),
+              isSelected: false,
+            ),
+            PaneItemWidget(
+              icon: Icon(FluentIcons.settings),
+              title: Text('Settings'),
+              isSelected: true,
+            ),
+          ],
+        ),
+        content: NavigationBody(
+          index: index,
+          children: [
+            NewPage(),
+            AddPage(),
+            HelpPage(),
+            SettingsPage(),
+          ],
+        ),
+      );
+    });
   }
 }

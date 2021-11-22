@@ -102,10 +102,12 @@ packages:
   fluent_ui:
     dependency: "direct main"
     description:
-      name: fluent_ui
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.4.0"
+      path: "."
+      ref: HEAD
+      resolved-ref: f3bc01a7b841968a1a2170dbdac75d3afaecc86d
+      url: "https://github.com/bdlukaa/fluent_ui.git"
+    source: git
+    version: "3.4.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -118,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0"
+  flutter_colorpicker:
+    dependency: "direct main"
+    description:
+      name: flutter_colorpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter

@@ -1,4 +1,6 @@
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:provider/provider.dart';
+import 'package:secure_folder/models/theme.dart';
 
 class NewPage extends StatelessWidget {
   @override
@@ -17,14 +19,21 @@ class NewPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 10),
             child: SizedBox(
-              width: 50,
-              height: 50,
-              child: Button(
-                child: Icon(FluentIcons.new_folder),
-                onPressed: () => print(''),
-                style: ButtonStyle(
-                    backgroundColor: ButtonState.all(Colors.transparent)),
-              ),
+              width: 100,
+              height: 40,
+              child: Consumer<ThemeModel>(builder: (context, model, child) {
+                return Button(
+                  child: Icon(
+                    FluentIcons.new_folder,
+                    color: model.accentTextColor,
+                  ),
+                  onPressed: () => print(''),
+                  style: ButtonStyle(
+                    backgroundColor: ButtonState.all(model.accentColor),
+                    elevation: ButtonState.all(1),
+                  ),
+                );
+              }),
             ),
           )
         ],
