@@ -2,7 +2,7 @@ name: Build and Release App
 
 on:
   push:
-    branches: [ stable ]
+    branches: [ master ]
 
   workflow_dispatch:
 
