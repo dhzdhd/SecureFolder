@@ -38,6 +38,7 @@ jobs:
         run: |
           Rename-Item build\windows\runner\Release "Secure Folder"
           7z a exec "build\windows\runner\Secure Folder"
+          ls exec
           
       - name: Create release
         uses: softprops/action-gh-release@v1
