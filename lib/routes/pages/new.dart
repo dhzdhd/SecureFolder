@@ -1,6 +1,7 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
+import 'package:secure_folder/widgets/new_dialog.dart';
 
 class NewPage extends StatelessWidget {
   @override
@@ -27,7 +28,8 @@ class NewPage extends StatelessWidget {
                     FluentIcons.new_folder,
                     color: model.accentTextColor,
                   ),
-                  onPressed: () => print(''),
+                  onPressed: () => showDialog(
+                      context: context, builder: (context) => NewDialog()),
                   style: ButtonStyle(
                     backgroundColor: ButtonState.all(model.accentColor),
                     elevation: ButtonState.all(1),
