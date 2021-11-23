@@ -32,11 +32,11 @@ jobs:
       - name: Create msix
         run: |
           mkdir exec
-          flutter pub run msix:create -o exec -n "Secure Folder" --dont-install-certificate
+          flutter pub run msix:create -o exec -n SecureFolder --dont-install-certificate
 
       - name: Create zip
         run: |
-          7z -tZip a "exec\Secure Folder.zip" build\windows\runner\Release
+          7z -tZip a exec\SecureFolder.zip build\windows\runner\Release\
           ls exec\
           
           
