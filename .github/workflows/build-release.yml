@@ -37,9 +37,8 @@ jobs:
       - name: Create zip
         run: |
           # Rename-Item build\windows\runner\Release "Secure Folder"
-          7z a exec\ build\windows\runner\Release
-          ls ..
-          ls exec
+          7z -tZip a "exec\Secure Folder.zip" build\windows\runner\Release
+          ls exec\
           
           
       - name: Create release
