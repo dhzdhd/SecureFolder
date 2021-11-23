@@ -1,6 +1,7 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
+import 'package:secure_folder/widgets/text_field.dart';
 
 class NewDialog extends StatelessWidget {
   @override
@@ -11,8 +12,8 @@ class NewDialog extends StatelessWidget {
         content: Container(
           child: Column(
             children: [
-              TextBox(),
-              TextBox(),
+              TextFieldWidget(),
+              TextFieldWidget(),
             ],
           ),
         ),

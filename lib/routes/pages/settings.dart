@@ -4,6 +4,7 @@ import 'package:flutter_acrylic/flutter_acrylic.dart' show Window, WindowEffect;
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
 import 'package:secure_folder/widgets/color_dialog.dart';
+import 'package:secure_folder/widgets/icons.dart';
 
 enum Theme { light, dark }
 
@@ -42,6 +43,8 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Flexible(
                   child: Expander(
+                    leading: CustomIcons.palette,
+                    header: Text('Change theme'),
                     headerBackgroundColor: model.secondaryColor,
                     contentBackgroundColor: model.secondaryColor,
                     headerHeight: 70,
@@ -112,8 +115,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         )
                       ],
                     ),
-                    leading: Icon(FluentIcons.color),
-                    header: Text('Change theme'),
                   ),
                 ),
               ],

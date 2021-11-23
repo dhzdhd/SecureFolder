@@ -6,6 +6,7 @@ import 'package:secure_folder/routes/pages/add.dart';
 import 'package:secure_folder/routes/pages/new.dart';
 import 'package:secure_folder/routes/pages/help.dart';
 import 'package:secure_folder/routes/pages/settings.dart';
+import 'package:secure_folder/widgets/icons.dart';
 import 'package:secure_folder/widgets/pane_item.dart';
 import 'package:secure_folder/widgets/window_titlebar_buttons.dart';
 
@@ -60,7 +61,7 @@ class _HomeRouteState extends State<HomeRoute> {
               isSelected: false,
             ),
             PaneItemWidget(
-              icon: Icon(FluentIcons.add_in),
+              icon: CustomIcons.add,
               title: Text('Add files to folder'),
               isSelected: false,
             ),
@@ -72,7 +73,7 @@ class _HomeRouteState extends State<HomeRoute> {
               isSelected: false,
             ),
             PaneItemWidget(
-              icon: Icon(FluentIcons.settings),
+              icon: CustomIcons.settings,
               title: Text('Settings'),
               isSelected: true,
             ),
