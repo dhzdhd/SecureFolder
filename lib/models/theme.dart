@@ -3,7 +3,9 @@ import 'package:flutter_acrylic/flutter_acrylic.dart';
 
 final globalAccentColor = Color.fromARGB(255, 76, 194, 255);
 
+final lightPrimaryColor = Colors.white;
 final lightSecondaryColor = Color.fromARGB(20, 0, 0, 0);
+final lightTextColor = Colors.black;
 final lightAccentTextColor = Colors.white;
 final lightTheme = ThemeData(
   brightness: Brightness.light,
@@ -25,7 +27,9 @@ final lightTheme = ThemeData(
   ),
 );
 
+final darkPrimaryColor = Colors.black;
 final darkSecondaryColor = Color.fromARGB(20, 255, 255, 255);
+final darkTextColor = Colors.white;
 final darkAccentTextColor = Colors.black;
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -50,7 +54,9 @@ final darkTheme = ThemeData(
 class ThemeModel extends ChangeNotifier {
   var theme = darkTheme;
   var accentColor = globalAccentColor;
+  var primaryColor = darkPrimaryColor;
   var secondaryColor = darkSecondaryColor;
+  var textColor = darkTextColor;
   var accentTextColor = darkAccentTextColor;
 
   Future<void> setWindowEffect(String mode) async {
@@ -66,7 +72,9 @@ class ThemeModel extends ChangeNotifier {
         {
           theme = lightTheme;
           accentColor = accentColor;
+          primaryColor = lightPrimaryColor;
           secondaryColor = lightSecondaryColor;
+          textColor = lightTextColor;
           accentTextColor = lightAccentTextColor;
           await setWindowEffect(mode);
           break;
@@ -75,7 +83,9 @@ class ThemeModel extends ChangeNotifier {
         {
           theme = darkTheme;
           accentColor = accentColor;
+          primaryColor = darkPrimaryColor;
           secondaryColor = darkSecondaryColor;
+          textColor = darkTextColor;
           accentTextColor = darkAccentTextColor;
           await setWindowEffect(mode);
           break;

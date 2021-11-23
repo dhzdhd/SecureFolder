@@ -1,7 +1,9 @@
+import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart' show Window, WindowEffect;
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
+import 'package:secure_folder/widgets/color_dialog.dart';
 
 enum Theme { light, dark }
 
@@ -95,7 +97,10 @@ class _SettingsPageState extends State<SettingsPage> {
                                     style:
                                         TextStyle(color: model.accentTextColor),
                                   ),
-                                  onPressed: () => null,
+                                  onPressed: () => showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          ColorDialogWidget()),
                                   style: ButtonStyle(
                                     backgroundColor:
                                         ButtonState.all(model.accentColor),

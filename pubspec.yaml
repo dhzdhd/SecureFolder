@@ -34,7 +34,8 @@ dependencies:
     git: https://github.com/bdlukaa/fluent_ui.git
     # ^3.0.0
   flutter_acrylic: ^0.1.0
-  flutter_colorpicker: ^1.0.2
+  # flutter_colorpicker: ^1.0.2
+  flex_color_picker: ^2.2.0
 
 dev_dependencies:
   flutter_test:

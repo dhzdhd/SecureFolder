@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
 
 class _NavigationBody extends InheritedWidget {
+  /// Part of the fluent_ui lib
+
   const _NavigationBody({
     Key? key,
     required Widget child,
@@ -25,6 +27,8 @@ class _NavigationBody extends InheritedWidget {
 }
 
 class PaneItemWidget extends PaneItem {
+  /// Part of the fluent_ui lib with some changes
+
   final Widget title;
   final Widget icon;
   final bool isSelected;
