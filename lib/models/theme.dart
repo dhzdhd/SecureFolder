@@ -17,6 +17,14 @@ final lightTheme = ThemeData(
   shadowColor: Colors.transparent,
   disabledColor: Colors.transparent,
   accentColor: globalAccentColor.toAccentColor(),
+  dialogTheme: ContentDialogThemeData(
+    bodyPadding: EdgeInsets.only(top: 10),
+    actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
+    decoration: BoxDecoration(
+      color: darkPrimaryColor.withAlpha(50),
+      borderRadius: BorderRadius.circular(10),
+    ),
+  ),
   navigationPaneTheme: NavigationPaneThemeData(
     unselectedTextStyle: ButtonState.all(TextStyle(color: Colors.black)),
     selectedTextStyle: ButtonState.all(TextStyle(color: Colors.black)),
@@ -41,6 +49,14 @@ final darkTheme = ThemeData(
   shadowColor: Colors.transparent,
   disabledColor: Colors.transparent,
   accentColor: globalAccentColor.toAccentColor(),
+  dialogTheme: ContentDialogThemeData(
+    bodyPadding: EdgeInsets.only(top: 10),
+    actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
+    decoration: BoxDecoration(
+      color: darkPrimaryColor.withAlpha(50),
+      borderRadius: BorderRadius.circular(10),
+    ),
+  ),
   navigationPaneTheme: NavigationPaneThemeData(
     unselectedTextStyle: ButtonState.all(TextStyle(color: Colors.white)),
     selectedTextStyle: ButtonState.all(TextStyle(color: Colors.white)),
@@ -64,6 +80,11 @@ class ThemeModel extends ChangeNotifier {
       effect: WindowEffect.mica,
       dark: mode == 'dark' ? true : false,
     );
+  }
+
+  void changeAccentColor(Color color) {
+    accentColor = color;
+    notifyListeners();
   }
 
   Future<void> changeTheme(String mode) async {

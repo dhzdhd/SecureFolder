@@ -1,6 +1,6 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart' hide Colors;
+import 'package:flutter/material.dart' hide Colors, ButtonStyle;
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
 
@@ -10,7 +10,7 @@ class ColorDialogWidget extends StatefulWidget {
 }
 
 class _ColorDialogWidgetState extends State<ColorDialogWidget> {
-  var dialogPickerColor = Colors.black;
+  var dialogPickerColor = ThemeModel().accentColor;
 
   Future<bool> colorPickerDialog(Color bgColor, Color textColor) async {
     return ColorPicker(
@@ -60,7 +60,7 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
       return ContentDialog(
         backgroundDismiss: true,
         title: Text('Choose color'),
-        content: Container(
+        content: Center(
           child: ColorIndicator(
             color: dialogPickerColor,
             onSelectFocus: false,
@@ -82,8 +82,17 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
             width: 300,
             child: Center(
               child: Button(
-                child: Text('Apply'),
-                onPressed: () => Navigator.of(context).pop(),
+                child: Text(
+                  'Apply',
+                  style: TextStyle(color: model.accentTextColor),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: ButtonState.all(model.accentColor)),
+                onPressed: () {
+                  Provider.of<ThemeModel>(context, listen: false)
+                      .changeAccentColor(dialogPickerColor);
+                  Navigator.of(context).pop();
+                },
               ),
             ),
           ),
