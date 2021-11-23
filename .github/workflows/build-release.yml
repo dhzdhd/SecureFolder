@@ -5,6 +5,10 @@ on:
     branches: [ master ]
 
   workflow_dispatch:
+  
+permissions:
+  contents: write
+
 
 jobs:
   build:
@@ -31,6 +35,6 @@ jobs:
         with:
           files: build/windows/runner/Release/
           body_path: ${{ github.workspace }}-CHANGELOG.txt
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_REPOSITORY: dhzdhd/SecureFolder
