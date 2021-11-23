@@ -38,7 +38,7 @@ jobs:
           prerelease: true
           generate_release_notes: true
           files: build/windows/runner/Release/
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          body_path: ${{ github.workspace }}-CHANGELOG.md
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_REPOSITORY: dhzdhd/SecureFolder
