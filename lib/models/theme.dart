@@ -21,7 +21,7 @@ final lightTheme = ThemeData(
     bodyPadding: EdgeInsets.only(top: 10),
     actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
     decoration: BoxDecoration(
-      color: darkPrimaryColor.withAlpha(50),
+      color: lightPrimaryColor.withAlpha(180),
       borderRadius: BorderRadius.circular(10),
     ),
   ),
