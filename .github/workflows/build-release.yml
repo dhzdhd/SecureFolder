@@ -29,6 +29,16 @@ jobs:
           flutter pub get
           flutter build windows
           
+      - name: Create msix
+        run: |
+          mkdir exec
+          flutter pub run msix:create -o exec -n "Secure Folder" --dont-install-certificate
+
+      - name: Create zip
+        run: |
+          Rename-Item build\windows\runner\Release "Secure Folder"
+          7z a exec "build\windows\runner\Secure Folder"
+          
       - name: Create release
         uses: softprops/action-gh-release@v1
 #         if: startsWith(github.ref, 'refs/tags/')
@@ -37,7 +47,7 @@ jobs:
           tag_name: v0.0.1
           prerelease: true
           generate_release_notes: true
-          files: build/windows/runner/Release/*
+          files: exec/*
           body_path: CHANGELOG.md
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
