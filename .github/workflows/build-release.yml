@@ -37,8 +37,6 @@ jobs:
       - name: Create zip
         run: |
           7z -tZip a exec\SecureFolder.zip build\windows\runner\Release\
-          ls exec\
-          
           
       - name: Create release
         uses: softprops/action-gh-release@v1
