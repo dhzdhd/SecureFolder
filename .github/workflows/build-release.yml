@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
       - uses: actions/checkout@v2
@@ -22,10 +21,10 @@ jobs:
           
       - name: Create release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: build/windows/runner/Release/
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          token: ${{ secrets.GH_TOKEN }}
+        env:
+          GITHUB_REPOSITORY: dhzdhd/SecureFolder
