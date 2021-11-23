@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -21,6 +21,7 @@ jobs:
 
       - name: Build
         run: |
+          flutter config --enable-windows-desktop
           flutter pub get
           flutter build windows
           
