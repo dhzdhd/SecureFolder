@@ -36,10 +36,11 @@ jobs:
 
       - name: Create zip
         run: |
-          Rename-Item build\windows\runner\Release "Secure Folder"
-          7z a \exec\ "build\windows\runner\Secure Folder"
+          # Rename-Item build\windows\runner\Release "Secure Folder"
+          7z a exec\ build\windows\runner\Release
           ls ..
           ls exec
+          
           
       - name: Create release
         uses: softprops/action-gh-release@v1
