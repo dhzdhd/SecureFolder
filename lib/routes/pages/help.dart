@@ -11,7 +11,11 @@ class HelpPage extends StatelessWidget {
           style: TextStyle(fontSize: 30),
         ),
       ),
-      content: Container(),
+      content: Container(
+        child: Column(
+          children: [Expander(header: Text('Credits'), content: Container())],
+        ),
+      ),
     );
   }
 }
