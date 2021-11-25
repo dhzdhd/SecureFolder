@@ -34,8 +34,8 @@ class NewDialog extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            width: 300,
+          ConstrainedBox(
+            constraints: BoxConstraints(minWidth: 300),
             child: Center(
               child: Button(
                 child: Text('Cancel'),

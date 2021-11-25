@@ -56,7 +56,7 @@ class _HomeRouteState extends State<HomeRoute> {
           onChanged: (i) => setState(() => index = i),
           items: [
             PaneItemWidget(
-              icon: Icon(FluentIcons.new_folder),
+              icon: CustomIcons.new_,
               title: Text('Make a new folder'),
               isSelected: false,
             ),
@@ -68,7 +68,7 @@ class _HomeRouteState extends State<HomeRoute> {
           ],
           footerItems: [
             PaneItemWidget(
-              icon: Icon(FluentIcons.help),
+              icon: CustomIcons.help,
               title: Text('Help'),
               isSelected: false,
             ),

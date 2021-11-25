@@ -1,9 +1,21 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
+import 'package:secure_folder/widgets/folder_container.dart';
+import 'package:secure_folder/widgets/icons.dart';
 import 'package:secure_folder/widgets/new_dialog.dart';
 
 class NewPage extends StatelessWidget {
+  final list = [
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e')),
+    FolderContainerWidget(child: Text('e'))
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
@@ -24,14 +36,11 @@ class NewPage extends StatelessWidget {
               height: 40,
               child: Consumer<ThemeModel>(builder: (context, model, child) {
                 return Button(
-                  child: Icon(
-                    FluentIcons.new_folder,
-                    color: model.accentTextColor,
-                  ),
+                  child: SizedBox.shrink(child: CustomIcons.new_),
                   onPressed: () => showDialog(
                       context: context, builder: (context) => NewDialog()),
                   style: ButtonStyle(
-                    backgroundColor: ButtonState.all(model.accentColor),
+                    backgroundColor: ButtonState.all(model.secondaryColor),
                     elevation: ButtonState.all(1),
                   ),
                 );
@@ -40,7 +49,16 @@ class NewPage extends StatelessWidget {
           )
         ],
       ),
-      content: Container(),
+      content: Padding(
+          padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 5, mainAxisSpacing: 10, crossAxisSpacing: 10),
+            itemCount: list.length,
+            itemBuilder: (context, index) {
+              return list[index];
+            },
+          )),
     );
   }
 }
