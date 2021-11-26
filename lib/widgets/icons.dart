@@ -9,6 +9,8 @@ class CustomIcons {
       setSize(SvgPicture.asset('assets/icons/settings.svg'));
   static final changelog = setSize(Image.asset('assets/icons/changelog.png'));
   static final credits = setSize(Image.asset('assets/icons/credits.png'));
+  static final creditsScaled =
+      setSize(Image.asset('assets/icons/credits.png'), 300);
   static final help = setSize(Image.asset('assets/icons/help.png'));
   static final license = setSize(Image.asset('assets/icons/license.png'));
   static final new_ = setSize(Image.asset('assets/icons/new.png'));

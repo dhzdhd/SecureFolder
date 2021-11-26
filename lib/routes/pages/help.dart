@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:provider/provider.dart';
+import 'package:secure_folder/models/theme.dart';
 import 'package:secure_folder/widgets/expander.dart';
 import 'package:secure_folder/widgets/icons.dart';
 
@@ -34,7 +37,22 @@ class HelpPage extends StatelessWidget {
               ExpanderWidget(
                 leading: CustomIcons.changelog,
                 header: Text('Changelog'),
-                content: Text(File('CHANGELOG.md').readAsStringSync()),
+                content: Consumer<ThemeModel>(builder: (_, model, __) {
+                  return MarkdownBody(
+                    data: File('CHANGELOG.md').readAsStringSync(),
+                    styleSheetTheme: MarkdownStyleSheetBaseTheme.platform,
+                    styleSheet: MarkdownStyleSheet(
+                      h1: TextStyle(color: model.textColor),
+                      h2: TextStyle(color: model.textColor),
+                      h3: TextStyle(color: model.textColor),
+                      h4: TextStyle(color: model.textColor),
+                      h5: TextStyle(color: model.textColor),
+                      h6: TextStyle(color: model.textColor),
+                      p: TextStyle(color: model.textColor),
+                      listBullet: TextStyle(color: model.textColor),
+                    ),
+                  );
+                }),
               ),
             ],
           ),

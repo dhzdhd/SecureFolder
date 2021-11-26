@@ -32,6 +32,8 @@ dependencies:
   flex_color_picker: ^2.2.0
   flutter_svg: ^0.23.0+1
   msix: ^2.6.3
+  win32: ^2.3.1
+  flutter_markdown: ^0.6.8
 
 dev_dependencies:
   flutter_test:

@@ -8,7 +8,7 @@ class WindowButtons extends StatelessWidget {
     final buttonColors = WindowButtonColors(
       iconNormal: theme.inactiveColor,
       iconMouseDown: theme.inactiveColor,
-      iconMouseOver: theme.inactiveColor,
+      iconMouseOver: Colors.transparent,
       mouseOver: ButtonThemeData.buttonColor(
           theme.brightness, {ButtonStates.hovering}),
       mouseDown: ButtonThemeData.buttonColor(
