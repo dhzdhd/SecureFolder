@@ -51,7 +51,9 @@ class _HomeRouteState extends State<HomeRoute> {
           ),
         ),
         pane: NavigationPane(
-          header: SizedBox.shrink(),
+          header: Container(
+            child: CustomIcons.profile,
+          ),
           selected: index,
           onChanged: (i) => setState(() => index = i),
           items: [

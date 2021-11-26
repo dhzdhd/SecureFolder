@@ -24,7 +24,8 @@ class FolderContainerWidget extends StatelessWidget {
                 children: [
                   Flexible(
                     flex: 5,
-                    child: SizedBox(width: 100, child: icon ?? CustomIcons.add),
+                    child: SizedBox(
+                        width: 100, child: icon ?? CustomIcons.addScaled),
                   ),
                   Flexible(
                     flex: 1,

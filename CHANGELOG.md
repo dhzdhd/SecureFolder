@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 0.0.3 - 26-11-2021
+### Added
+- Help tab contents including Credits, License and Changelog.
+- Custom expander widget.
+
+### Changed
+- Padding of some widgets.
+
+---
+
 ## 0.0.2 - 25-11-2021
 ### Added
 - Accent color theme switching.

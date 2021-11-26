@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:secure_folder/widgets/expander.dart';
+import 'package:secure_folder/widgets/icons.dart';
 
 class HelpPage extends StatelessWidget {
   @override
@@ -19,18 +20,21 @@ class HelpPage extends StatelessWidget {
         child: Container(
           child: ListView(
             children: [
-              ExpanderWidget(header: Text('Credits'), content: Container()),
               ExpanderWidget(
-                header: Text('License'),
-                content: Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(File('LICENSE').readAsStringSync())),
+                leading: CustomIcons.credits,
+                header: Text('Credits'),
+                content: Text(
+                    'All credits go to dhzdhd - owner of the app.\nDiscord: dhzdhd#2244'),
               ),
               ExpanderWidget(
+                leading: CustomIcons.license,
+                header: Text('License'),
+                content: Text(File('LICENSE').readAsStringSync()),
+              ),
+              ExpanderWidget(
+                leading: CustomIcons.changelog,
                 header: Text('Changelog'),
-                content: Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(File('CHANGELOG.md').readAsStringSync())),
+                content: Text(File('CHANGELOG.md').readAsStringSync()),
               ),
             ],
           ),
