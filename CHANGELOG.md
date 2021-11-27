@@ -10,9 +10,11 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Help tab contents including Credits, License and Changelog.
 - Custom expander widget.
+- New icons
 
 ### Changed
 - Padding of some widgets.
+- Profile alignment and padding in NavigationPane header.
 
 ### Fixed
 - Colors of tabs in NavigationPane while selected.
