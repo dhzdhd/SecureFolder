@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomIcons {
-  static final add = setSize(SvgPicture.asset('assets/icons/add.svg'));
-  static final addScaled =
-      setSize(SvgPicture.asset('assets/icons/add.svg'), 300);
+  static final addFolder =
+      setSize(SvgPicture.asset('assets/icons/add-folder.svg'));
+  static final folder =
+      setSize(SvgPicture.asset('assets/icons/folder.svg'), 300);
   static final settings =
       setSize(SvgPicture.asset('assets/icons/settings.svg'));
+  static final add = setSize(Image.asset('assets/icons/add.png'));
   static final changelog = setSize(Image.asset('assets/icons/changelog.png'));
   static final credits = setSize(Image.asset('assets/icons/credits.png'));
   static final creditsScaled =

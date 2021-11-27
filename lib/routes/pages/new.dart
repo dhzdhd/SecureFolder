@@ -36,7 +36,7 @@ class NewPage extends StatelessWidget {
               height: 40,
               child: Consumer<ThemeModel>(builder: (context, model, child) {
                 return Button(
-                  child: SizedBox.shrink(child: CustomIcons.new_),
+                  child: CustomIcons.add,
                   onPressed: () => showDialog(
                       context: context, builder: (context) => NewDialog()),
                   style: ButtonStyle(

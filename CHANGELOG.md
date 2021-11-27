@@ -6,13 +6,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## 0.0.3 - 26-11-2021
+## 0.0.3 - 27-11-2021
 ### Added
 - Help tab contents including Credits, License and Changelog.
 - Custom expander widget.
 
 ### Changed
 - Padding of some widgets.
+
+### Fixed
+- Colors of tabs in NavigationPane while selected.
 
 ---
 

@@ -55,15 +55,22 @@ class _HomeRouteState extends State<HomeRoute> {
           ),
         ),
         pane: NavigationPane(
-          header: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIcons.credits,
-              Text(
-                username.toString().toUpperCase(),
-                style: TextStyle(fontWeight: FontWeight.w600),
-              )
-            ],
+          header: Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: CustomIcons.profile,
+                ),
+                Expanded(
+                  child: Text(
+                    username.toString(),
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
           ),
           selected: index,
           onChanged: (i) => setState(() {
@@ -80,7 +87,7 @@ class _HomeRouteState extends State<HomeRoute> {
               isSelected: indexedDict[0]!,
             ),
             PaneItemWidget(
-              icon: CustomIcons.add,
+              icon: CustomIcons.addFolder,
               title: Text('Add files to folder'),
               isSelected: indexedDict[1]!,
             ),
