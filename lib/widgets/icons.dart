@@ -17,7 +17,6 @@ class CustomIcons {
   static final license = setSize(Image.asset('assets/icons/license.png'));
   static final new_ = setSize(Image.asset('assets/icons/new.png'));
   static final palette = setSize(Image.asset('assets/icons/palette.png'));
-
   static final profile = setSize(Image.asset('assets/icons/profile.png'));
 
   static Widget setSize(dynamic child, [double width = 25]) {

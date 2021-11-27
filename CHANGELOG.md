@@ -6,6 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 0.0.4 - xx-1x-2021
+
+### Added
+- ...
+
+---
+
 ## 0.0.3 - 27-11-2021
 ### Added
 - Help tab contents including Credits, License and Changelog.

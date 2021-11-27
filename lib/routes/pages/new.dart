@@ -50,15 +50,16 @@ class NewPage extends StatelessWidget {
         ],
       ),
       content: Padding(
-          padding: EdgeInsets.only(top: 30, right: 20, left: 20),
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5, mainAxisSpacing: 10, crossAxisSpacing: 10),
-            itemCount: list.length,
-            itemBuilder: (context, index) {
-              return list[index];
-            },
-          )),
+        padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 5, mainAxisSpacing: 10, crossAxisSpacing: 10),
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return list[index];
+          },
+        ),
+      ),
     );
   }
 }
