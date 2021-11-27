@@ -53,7 +53,7 @@ final darkTheme = ThemeData(
     bodyPadding: EdgeInsets.only(top: 10),
     actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
     decoration: BoxDecoration(
-      color: darkPrimaryColor.withAlpha(50),
+      color: darkPrimaryColor,
       borderRadius: BorderRadius.circular(10),
     ),
   ),

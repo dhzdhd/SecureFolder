@@ -125,7 +125,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: f3bc01a7b841968a1a2170dbdac75d3afaecc86d
+      resolved-ref: ba10fb2039b27a97b61c395f099467886c6fa214
       url: "https://github.com/bdlukaa/fluent_ui.git"
     source: git
     version: "3.4.1"
@@ -327,7 +327,7 @@ packages:
     source: hosted
     version: "2.1.0"
   win32:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: win32
       url: "https://pub.dartlang.org"

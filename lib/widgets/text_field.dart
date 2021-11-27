@@ -9,6 +9,7 @@ class TextFieldWidget extends StatelessWidget {
       return TextBox(
         placeholder: 'Password',
         cursorColor: model.textColor,
+        style: TextStyle(color: model.textColor),
       );
     });
   }

@@ -1,4 +1,4 @@
-import 'dart:ffi';
+import 'dart:io';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -11,10 +11,6 @@ import 'package:secure_folder/routes/pages/settings.dart';
 import 'package:secure_folder/widgets/icons.dart';
 import 'package:secure_folder/widgets/pane_item.dart';
 import 'package:secure_folder/widgets/window_titlebar_buttons.dart';
-import 'package:win32/win32.dart'
-    hide MoveWindow
-    show GetUserDefaultLocaleName, Utf16Conversion;
-import 'package:win32/winsock2.dart';
 
 class HomeRoute extends StatefulWidget {
   @override
@@ -22,8 +18,9 @@ class HomeRoute extends StatefulWidget {
 }
 
 class _HomeRouteState extends State<HomeRoute> {
-  Pointer? username;
+  final username = Platform.environment['USERNAME']!;
   int index = 0;
+  final Map<int, bool> indexedDict = {0: true, 1: false, 2: false, 3: false};
 
   @override
   void initState() {
@@ -42,14 +39,14 @@ class _HomeRouteState extends State<HomeRoute> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 0),
                 child: Text(
                   'Secure Folder',
                 ),
               ),
             ),
           ),
-          automaticallyImplyLeading: false,
+          // automaticallyImplyLeading: false,
           actions: MoveWindow(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,33 +55,46 @@ class _HomeRouteState extends State<HomeRoute> {
           ),
         ),
         pane: NavigationPane(
-          header: Container(
-            child: CustomIcons.creditsScaled,
+          header: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomIcons.credits,
+              Text(
+                username.toString().toUpperCase(),
+                style: TextStyle(fontWeight: FontWeight.w600),
+              )
+            ],
           ),
           selected: index,
-          onChanged: (i) => setState(() => index = i),
+          onChanged: (i) => setState(() {
+            index = i;
+            for (var _ = 0; _ < indexedDict.length; _++) {
+              indexedDict[_] = false;
+            }
+            indexedDict[i] = true;
+          }),
           items: [
             PaneItemWidget(
               icon: CustomIcons.new_,
               title: Text('Make a new folder'),
-              isSelected: false,
+              isSelected: indexedDict[0]!,
             ),
             PaneItemWidget(
               icon: CustomIcons.add,
               title: Text('Add files to folder'),
-              isSelected: false,
+              isSelected: indexedDict[1]!,
             ),
           ],
           footerItems: [
             PaneItemWidget(
               icon: CustomIcons.help,
               title: Text('Help'),
-              isSelected: false,
+              isSelected: indexedDict[2]!,
             ),
             PaneItemWidget(
               icon: CustomIcons.settings,
               title: Text('Settings'),
-              isSelected: true,
+              isSelected: indexedDict[3]!,
             ),
           ],
         ),
