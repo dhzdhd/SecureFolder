@@ -15,7 +15,7 @@ void main() async {
   doWhenWindowReady(() {
     final win = appWindow;
     final initialSize = Size(1280, 720);
-    win.minSize = Size(0, 0);
+    win.minSize = Size(1300, 0);
     win.size = initialSize;
     win.alignment = Alignment.center;
     win.title = 'Secure Folder';

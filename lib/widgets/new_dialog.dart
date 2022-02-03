@@ -12,8 +12,8 @@ class NewDialog extends StatelessWidget {
         content: Container(
           child: Column(
             children: [
-              TextFieldWidget(),
-              TextFieldWidget(),
+              TextFieldWidget(title: 'Name'),
+              TextFieldWidget(title: 'Password'),
             ],
           ),
         ),

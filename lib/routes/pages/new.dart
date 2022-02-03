@@ -30,7 +30,7 @@ class NewPage extends StatelessWidget {
           ),
           Spacer(),
           Padding(
-            padding: EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 20),
             child: SizedBox(
               width: 100,
               height: 40,

@@ -73,7 +73,6 @@ class PaneItemWidget extends PaneItem {
           autofocus: autofocus ?? this.autofocus,
           focusNode: focusNode,
           onPressed: onPressed,
-          cursor: theme.cursor,
           builder: (context, states) {
             final textStyle = selected
                 ? theme.selectedTextStyle?.resolve(states)

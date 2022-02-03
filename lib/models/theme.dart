@@ -87,6 +87,11 @@ class ThemeModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void changeSecondaryColor(Color color) {
+    secondaryColor = color;
+    notifyListeners();
+  }
+
   Future<void> changeTheme(String mode) async {
     switch (mode) {
       case 'light':

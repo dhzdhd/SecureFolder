@@ -19,8 +19,8 @@ class HomeRoute extends StatefulWidget {
 
 class _HomeRouteState extends State<HomeRoute> {
   final username = Platform.environment['USERNAME']!;
-  int index = 0;
   final Map<int, bool> indexedDict = {0: true, 1: false, 2: false, 3: false};
+  int index = 0;
 
   @override
   void initState() {
@@ -34,25 +34,25 @@ class _HomeRouteState extends State<HomeRoute> {
       return NavigationView(
         contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         appBar: NavigationAppBar(
-          height: 36,
-          title: MoveWindow(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 0),
-                child: Text(
-                  'Secure Folder',
-                ),
-              ),
-            ),
-          ),
+          height: 0,
+          // title: MoveWindow(
+          //   child: Align(
+          //     alignment: Alignment.centerLeft,
+          //     child: Padding(
+          //       padding: EdgeInsets.only(left: 0),
+          //       child: Text(
+          //         'Secure Folder',
+          //       ),
+          //     ),
+          //   ),
+          // ),
           // automaticallyImplyLeading: false,
-          actions: MoveWindow(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Spacer(), WindowButtons()],
-            ),
-          ),
+          // actions: MoveWindow(
+          //   child: Row(
+          //     crossAxisAlignment: CrossAxisAlignment.center,
+          // children: [Spacer(), WindowButtons()],
+          //   ),
+          // ),
         ),
         pane: NavigationPane(
           header: Padding(

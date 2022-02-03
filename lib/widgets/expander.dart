@@ -18,7 +18,7 @@ class ExpanderWidget extends StatelessWidget {
           leading: leading,
           header: header,
           content: content,
-          headerBackgroundColor: model.secondaryColor,
+          headerBackgroundColor: ButtonState.all(model.secondaryColor),
           contentBackgroundColor: model.secondaryColor,
           headerHeight: 70,
         ),
