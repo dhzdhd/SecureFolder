@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
@@ -9,8 +8,6 @@ import 'package:secure_folder/routes/pages/new.dart';
 import 'package:secure_folder/routes/pages/help.dart';
 import 'package:secure_folder/routes/pages/settings.dart';
 import 'package:secure_folder/widgets/icons.dart';
-import 'package:secure_folder/widgets/pane_item.dart';
-import 'package:secure_folder/widgets/window_titlebar_buttons.dart';
 
 class HomeRoute extends StatefulWidget {
   @override
@@ -18,7 +15,7 @@ class HomeRoute extends StatefulWidget {
 }
 
 class _HomeRouteState extends State<HomeRoute> {
-  final username = Platform.environment['USERNAME']!;
+  final username = Platform.environment['USERNAME'] ?? 'Unknown user';
   final Map<int, bool> indexedDict = {0: true, 1: false, 2: false, 3: false};
   int index = 0;
 
@@ -33,27 +30,6 @@ class _HomeRouteState extends State<HomeRoute> {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return NavigationView(
         contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        appBar: NavigationAppBar(
-          height: 0,
-          // title: MoveWindow(
-          //   child: Align(
-          //     alignment: Alignment.centerLeft,
-          //     child: Padding(
-          //       padding: EdgeInsets.only(left: 0),
-          //       child: Text(
-          //         'Secure Folder',
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // automaticallyImplyLeading: false,
-          // actions: MoveWindow(
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          // children: [Spacer(), WindowButtons()],
-          //   ),
-          // ),
-        ),
         pane: NavigationPane(
           header: Padding(
             padding: EdgeInsets.only(left: 15),
@@ -81,27 +57,23 @@ class _HomeRouteState extends State<HomeRoute> {
             indexedDict[i] = true;
           }),
           items: [
-            PaneItemWidget(
+            PaneItem(
               icon: CustomIcons.new_,
               title: Text('Make a new folder'),
-              isSelected: indexedDict[0]!,
             ),
-            PaneItemWidget(
+            PaneItem(
               icon: CustomIcons.addFolder,
               title: Text('Add files to folder'),
-              isSelected: indexedDict[1]!,
             ),
           ],
           footerItems: [
-            PaneItemWidget(
+            PaneItem(
               icon: CustomIcons.help,
               title: Text('Help'),
-              isSelected: indexedDict[2]!,
             ),
-            PaneItemWidget(
+            PaneItem(
               icon: CustomIcons.settings,
               title: Text('Settings'),
-              isSelected: indexedDict[3]!,
             ),
           ],
         ),

@@ -31,10 +31,9 @@ class PaneItemWidget extends PaneItem {
 
   final Widget title;
   final Widget icon;
-  final bool isSelected;
+  // final bool isSelected;
 
-  PaneItemWidget(
-      {required this.title, required this.icon, required this.isSelected})
+  PaneItemWidget({required this.title, required this.icon})
       : super(icon: icon, title: title);
 
   @override
@@ -62,7 +61,7 @@ class PaneItemWidget extends PaneItem {
       return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: isSelected ? model.secondaryColor : Colors.transparent,
+          // color: isSelected ? model.secondaryColor : Colors.transparent,
         ),
         key: itemKey,
         height: !isTop ? 36.0 : null,
@@ -146,7 +145,7 @@ class PaneItemWidget extends PaneItem {
             }
             child = AnimatedContainer(
               duration: theme.animationDuration ?? Duration.zero,
-              curve: theme.animationCurve ?? standartCurve,
+              curve: theme.animationCurve ?? standardCurve,
               decoration: BoxDecoration(
                 color: () {
                   final ButtonState<Color?> tileColor = theme.tileColor ??

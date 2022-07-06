@@ -5,6 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
 
 class ColorDialogWidget extends StatefulWidget {
+  final String type;
+
+  ColorDialogWidget(this.type);
+
   @override
   _ColorDialogWidgetState createState() => _ColorDialogWidgetState();
 }
@@ -90,7 +94,7 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
                     backgroundColor: ButtonState.all(model.accentColor)),
                 onPressed: () {
                   Provider.of<ThemeModel>(context, listen: false)
-                      .changeAccentColor(dialogPickerColor);
+                      .changeAccentColor(dialogPickerColor, widget.type);
                   Navigator.of(context).pop();
                 },
               ),

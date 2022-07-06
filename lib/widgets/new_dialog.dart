@@ -18,8 +18,8 @@ class NewDialog extends StatelessWidget {
           ),
         ),
         actions: [
-          SizedBox(
-            width: 300,
+          ConstrainedBox(
+            constraints: BoxConstraints(minWidth: 300),
             child: Center(
               child: Button(
                 child: Text(
@@ -27,7 +27,8 @@ class NewDialog extends StatelessWidget {
                   style: TextStyle(color: model.accentTextColor),
                 ),
                 style: ButtonStyle(
-                    backgroundColor: ButtonState.all(model.accentColor)),
+                    backgroundColor:
+                        ButtonState.resolveWith((states) => model.accentColor)),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },

@@ -37,7 +37,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
         content: Padding(
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
           child: Container(
             child: Column(
               children: [
@@ -47,42 +47,40 @@ class _SettingsPageState extends State<SettingsPage> {
                     header: Text('Change theme'),
                     content: Column(
                       children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Expanded(child: Text('Switch theme')),
-                              SizedBox(
-                                width: 100,
-                                child: Combobox<Theme>(
-                                  value: comboBoxValue,
-                                  onChanged: (value) async {
-                                    setState(() {
-                                      comboBoxValue = value;
-                                    });
-                                    if (value == Theme.light) {
-                                      Provider.of<ThemeModel>(context,
-                                              listen: false)
-                                          .changeTheme('light');
-                                    } else {
-                                      Provider.of<ThemeModel>(context,
-                                              listen: false)
-                                          .changeTheme('dark');
-                                    }
-                                  },
-                                  items: [
-                                    ComboboxItem<Theme>(
-                                      value: Theme.light,
-                                      child: Text('Light'),
-                                    ),
-                                    ComboboxItem<Theme>(
-                                      value: Theme.dark,
-                                      child: Text('Dark'),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Expanded(child: Text('Switch theme')),
+                            SizedBox(
+                              width: 100,
+                              child: Combobox<Theme>(
+                                value: comboBoxValue,
+                                onChanged: (value) async {
+                                  setState(() {
+                                    comboBoxValue = value;
+                                  });
+                                  if (value == Theme.light) {
+                                    Provider.of<ThemeModel>(context,
+                                            listen: false)
+                                        .changeTheme('light');
+                                  } else {
+                                    Provider.of<ThemeModel>(context,
+                                            listen: false)
+                                        .changeTheme('dark');
+                                  }
+                                },
+                                items: [
+                                  ComboboxItem<Theme>(
+                                    value: Theme.light,
+                                    child: Text('Light'),
+                                  ),
+                                  ComboboxItem<Theme>(
+                                    value: Theme.dark,
+                                    child: Text('Dark'),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 40, bottom: 10),
@@ -100,7 +98,33 @@ class _SettingsPageState extends State<SettingsPage> {
                                   onPressed: () => showDialog(
                                       context: context,
                                       builder: (context) =>
-                                          ColorDialogWidget()),
+                                          ColorDialogWidget('bg')),
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        ButtonState.all(model.accentColor),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 40, bottom: 10),
+                          child: Row(
+                            children: [
+                              Expanded(child: Text('Text accent color')),
+                              SizedBox(
+                                width: 100,
+                                child: Button(
+                                  child: Text(
+                                    'Color',
+                                    style:
+                                        TextStyle(color: model.accentTextColor),
+                                  ),
+                                  onPressed: () => showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          ColorDialogWidget('text')),
                                   style: ButtonStyle(
                                     backgroundColor:
                                         ButtonState.all(model.accentColor),

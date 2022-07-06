@@ -26,9 +26,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       return Padding(
         padding: EdgeInsets.only(bottom: 10),
         child: TextBox(
+          controller: textController,
           placeholder: this.widget.title,
           cursorColor: model.textColor,
-          style: TextStyle(color: model.textColor),
+          style:
+              TextStyle(color: model.textColor, decorationColor: Colors.white),
         ),
       );
     });

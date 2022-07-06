@@ -30,8 +30,8 @@ final lightTheme = ThemeData(
     selectedTextStyle: ButtonState.all(TextStyle(color: Colors.black)),
     labelPadding: EdgeInsets.only(left: 10),
     iconPadding: EdgeInsets.only(left: 10),
-    animationDuration: Duration(milliseconds: 150),
-    tileColor: ButtonState.all(Colors.transparent),
+    animationDuration: Duration(milliseconds: 100),
+    highlightColor: globalAccentColor,
   ),
 );
 
@@ -62,8 +62,8 @@ final darkTheme = ThemeData(
     selectedTextStyle: ButtonState.all(TextStyle(color: Colors.white)),
     labelPadding: EdgeInsets.only(left: 10),
     iconPadding: EdgeInsets.only(left: 10),
-    animationDuration: Duration(milliseconds: 150),
-    tileColor: ButtonState.all(Colors.transparent),
+    animationDuration: Duration(milliseconds: 100),
+    highlightColor: globalAccentColor,
   ),
 );
 
@@ -82,8 +82,8 @@ class ThemeModel extends ChangeNotifier {
     );
   }
 
-  void changeAccentColor(Color color) {
-    accentColor = color;
+  void changeAccentColor(Color color, String type) {
+    type == 'text' ? accentTextColor = color : accentColor = color;
     notifyListeners();
   }
 
