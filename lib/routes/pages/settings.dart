@@ -6,28 +6,25 @@ import 'package:secure_folder/widgets/color_dialog.dart';
 import 'package:secure_folder/widgets/expander.dart';
 import 'package:secure_folder/widgets/icons.dart';
 
-enum Theme { light, dark }
-
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  Theme? comboBoxValue;
+  var comboBoxValue = Theme.dark;
 
   @override
   void initState() {
     super.initState();
     Window.setEffect(
       effect: WindowEffect.mica,
-      dark: true,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeModel>(builder: (context, model, child) {
+    return Consumer<ThemeModel>(builder: (_, model, __) {
       return ScaffoldPage(
         header: const Padding(
           padding: EdgeInsets.only(left: 20),
@@ -56,24 +53,18 @@ class _SettingsPageState extends State<SettingsPage> {
                               value: comboBoxValue,
                               onChanged: (value) async {
                                 setState(() {
-                                  comboBoxValue = value;
+                                  comboBoxValue = value!;
                                 });
-                                if (value == Theme.light) {
-                                  Provider.of<ThemeModel>(context,
-                                          listen: false)
-                                      .changeTheme('light');
-                                } else {
-                                  Provider.of<ThemeModel>(context,
-                                          listen: false)
-                                      .changeTheme('dark');
-                                }
+                                await Provider.of<ThemeModel>(context,
+                                        listen: false)
+                                    .changeTheme(value!);
                               },
                               items: [
-                                ComboboxItem<Theme>(
+                                const ComboboxItem<Theme>(
                                   value: Theme.light,
                                   child: Text('Light'),
                                 ),
-                                ComboboxItem<Theme>(
+                                const ComboboxItem<Theme>(
                                   value: Theme.dark,
                                   child: Text('Dark'),
                                 ),
@@ -83,10 +74,10 @@ class _SettingsPageState extends State<SettingsPage> {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 40, bottom: 10),
+                        padding: const EdgeInsets.only(top: 40, bottom: 10),
                         child: Row(
                           children: [
-                            Expanded(child: Text('Accent color')),
+                            const Expanded(child: Text('Accent color')),
                             SizedBox(
                               width: 100,
                               child: Button(
@@ -109,10 +100,10 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 40, bottom: 10),
+                        padding: const EdgeInsets.only(top: 40, bottom: 10),
                         child: Row(
                           children: [
-                            Expanded(child: Text('Text accent color')),
+                            const Expanded(child: Text('Text accent color')),
                             SizedBox(
                               width: 100,
                               child: Button(

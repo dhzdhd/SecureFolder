@@ -21,7 +21,7 @@ class _HomeRouteState extends State<HomeRoute> {
   @override
   void initState() {
     super.initState();
-    ThemeModel().setWindowEffect('dark');
+    ThemeModel().setWindowEffect(Theme.dark);
   }
 
   @override

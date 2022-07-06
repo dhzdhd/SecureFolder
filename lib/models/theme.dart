@@ -1,12 +1,14 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 
-final globalAccentColor = Color.fromARGB(255, 76, 194, 255);
+enum Theme { light, dark }
 
-final lightPrimaryColor = Colors.white;
-final lightSecondaryColor = Color.fromARGB(20, 0, 0, 0);
-final lightTextColor = Colors.black;
-final lightAccentTextColor = Colors.white;
+const globalAccentColor = Color.fromARGB(255, 76, 194, 255);
+
+const lightPrimaryColor = Colors.white;
+const lightSecondaryColor = Color.fromARGB(20, 0, 0, 0);
+const lightTextColor = Colors.black;
+const lightAccentTextColor = Colors.white;
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   micaBackgroundColor: Colors.white,
@@ -18,27 +20,27 @@ final lightTheme = ThemeData(
   disabledColor: Colors.transparent,
   accentColor: globalAccentColor.toAccentColor(),
   dialogTheme: ContentDialogThemeData(
-    bodyPadding: EdgeInsets.only(top: 10),
-    actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
+    bodyPadding: const EdgeInsets.only(top: 10),
+    actionsPadding: const EdgeInsets.only(top: 20, bottom: 20),
     decoration: BoxDecoration(
       color: lightPrimaryColor.withAlpha(180),
       borderRadius: BorderRadius.circular(10),
     ),
   ),
   navigationPaneTheme: NavigationPaneThemeData(
-    unselectedTextStyle: ButtonState.all(TextStyle(color: Colors.black)),
-    selectedTextStyle: ButtonState.all(TextStyle(color: Colors.black)),
-    labelPadding: EdgeInsets.only(left: 10),
-    iconPadding: EdgeInsets.only(left: 10),
-    animationDuration: Duration(milliseconds: 100),
+    unselectedTextStyle: ButtonState.all(const TextStyle(color: Colors.black)),
+    selectedTextStyle: ButtonState.all(const TextStyle(color: Colors.black)),
+    labelPadding: const EdgeInsets.only(left: 10),
+    iconPadding: const EdgeInsets.only(left: 10),
+    animationDuration: const Duration(milliseconds: 100),
     highlightColor: globalAccentColor,
   ),
 );
 
-final darkPrimaryColor = Colors.black;
-final darkSecondaryColor = Color.fromARGB(20, 255, 255, 255);
-final darkTextColor = Colors.white;
-final darkAccentTextColor = Colors.black;
+const darkPrimaryColor = Colors.black;
+const darkSecondaryColor = Color.fromARGB(20, 255, 255, 255);
+const darkTextColor = Colors.white;
+const darkAccentTextColor = Colors.black;
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   micaBackgroundColor: Colors.transparent,
@@ -50,19 +52,19 @@ final darkTheme = ThemeData(
   disabledColor: Colors.transparent,
   accentColor: globalAccentColor.toAccentColor(),
   dialogTheme: ContentDialogThemeData(
-    bodyPadding: EdgeInsets.only(top: 10),
-    actionsPadding: EdgeInsets.only(top: 20, bottom: 20),
+    bodyPadding: const EdgeInsets.only(top: 10),
+    actionsPadding: const EdgeInsets.only(top: 20, bottom: 20),
     decoration: BoxDecoration(
       color: darkPrimaryColor,
       borderRadius: BorderRadius.circular(10),
     ),
   ),
   navigationPaneTheme: NavigationPaneThemeData(
-    unselectedTextStyle: ButtonState.all(TextStyle(color: Colors.white)),
-    selectedTextStyle: ButtonState.all(TextStyle(color: Colors.white)),
-    labelPadding: EdgeInsets.only(left: 10),
-    iconPadding: EdgeInsets.only(left: 10),
-    animationDuration: Duration(milliseconds: 100),
+    unselectedTextStyle: ButtonState.all(const TextStyle(color: Colors.white)),
+    selectedTextStyle: ButtonState.all(const TextStyle(color: Colors.white)),
+    labelPadding: const EdgeInsets.only(left: 10),
+    iconPadding: const EdgeInsets.only(left: 10),
+    animationDuration: const Duration(milliseconds: 100),
     highlightColor: globalAccentColor,
   ),
 );
@@ -75,10 +77,10 @@ class ThemeModel extends ChangeNotifier {
   var textColor = darkTextColor;
   var accentTextColor = darkAccentTextColor;
 
-  Future<void> setWindowEffect(String mode) async {
+  Future<void> setWindowEffect(Theme mode) async {
     await Window.setEffect(
       effect: WindowEffect.mica,
-      dark: mode == 'dark' ? true : false,
+      dark: mode == Theme.dark ? true : false,
     );
   }
 
@@ -92,9 +94,9 @@ class ThemeModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> changeTheme(String mode) async {
+  Future<void> changeTheme(Theme mode) async {
     switch (mode) {
-      case 'light':
+      case Theme.light:
         {
           theme = lightTheme;
           accentColor = accentColor;
@@ -102,10 +104,9 @@ class ThemeModel extends ChangeNotifier {
           secondaryColor = lightSecondaryColor;
           textColor = lightTextColor;
           accentTextColor = lightAccentTextColor;
-          await setWindowEffect(mode);
           break;
         }
-      case 'dark':
+      case Theme.dark:
         {
           theme = darkTheme;
           accentColor = accentColor;
@@ -113,10 +114,10 @@ class ThemeModel extends ChangeNotifier {
           secondaryColor = darkSecondaryColor;
           textColor = darkTextColor;
           accentTextColor = darkAccentTextColor;
-          await setWindowEffect(mode);
           break;
         }
     }
+    await setWindowEffect(mode);
     notifyListeners();
   }
 }

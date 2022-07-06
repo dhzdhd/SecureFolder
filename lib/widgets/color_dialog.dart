@@ -2,7 +2,7 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart' hide Colors, ButtonStyle;
 import 'package:provider/provider.dart';
-import 'package:secure_folder/models/theme.dart';
+import 'package:secure_folder/models/theme.dart' hide Theme;
 
 class ColorDialogWidget extends StatefulWidget {
   final String type;
