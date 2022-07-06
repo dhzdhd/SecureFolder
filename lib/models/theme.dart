@@ -3,6 +3,8 @@ import 'package:flutter_acrylic/flutter_acrylic.dart';
 
 enum Theme { light, dark }
 
+enum DialogType { bg, text }
+
 const globalAccentColor = Color.fromARGB(255, 76, 194, 255);
 
 const lightPrimaryColor = Colors.white;
@@ -84,8 +86,8 @@ class ThemeModel extends ChangeNotifier {
     );
   }
 
-  void changeAccentColor(Color color, String type) {
-    type == 'text' ? accentTextColor = color : accentColor = color;
+  void changeAccentColor(Color color, DialogType type) {
+    type == DialogType.text ? accentTextColor = color : accentColor = color;
     notifyListeners();
   }
 

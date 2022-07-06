@@ -89,7 +89,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                 onPressed: () => showDialog(
                                     context: context,
                                     builder: (context) =>
-                                        ColorDialogWidget('bg')),
+                                        ColorDialogWidget(DialogType.bg)),
                                 style: ButtonStyle(
                                   backgroundColor:
                                       ButtonState.all(model.accentColor),
@@ -115,7 +115,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                 onPressed: () => showDialog(
                                     context: context,
                                     builder: (context) =>
-                                        ColorDialogWidget('text')),
+                                        ColorDialogWidget(DialogType.text)),
                                 style: ButtonStyle(
                                   backgroundColor:
                                       ButtonState.all(model.accentColor),
