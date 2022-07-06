@@ -20,7 +20,7 @@ class _FolderContainerWidgetState extends State<FolderContainerWidget> {
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (_, model, __) {
       return Padding(
-        padding: EdgeInsets.only(left: 0, right: 0),
+        padding: const EdgeInsets.only(left: 0, right: 0),
         child: GestureDetector(
           onTapUp: (_) => {
             setState(() => {pressed = false})
@@ -45,7 +45,7 @@ class _FolderContainerWidgetState extends State<FolderContainerWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: const EdgeInsets.only(bottom: 10),
                     child: widget.child,
                   )
                 ],

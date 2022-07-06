@@ -51,8 +51,8 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
       context,
       barrierColor: Colors.transparent,
       backgroundColor: bgColor,
-      contentPadding: EdgeInsets.only(top: 10),
-      buttonPadding: EdgeInsets.only(right: 50),
+      contentPadding: const EdgeInsets.only(top: 10),
+      buttonPadding: const EdgeInsets.only(right: 50),
       constraints:
           const BoxConstraints(minHeight: 480, minWidth: 300, maxWidth: 320),
     );
@@ -63,7 +63,7 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return ContentDialog(
         backgroundDismiss: true,
-        title: Text('Choose color'),
+        title: const Text('Choose color'),
         content: Center(
           child: ColorIndicator(
             color: dialogPickerColor,
@@ -104,7 +104,7 @@ class _ColorDialogWidgetState extends State<ColorDialogWidget> {
             width: 300,
             child: Center(
               child: Button(
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),

@@ -8,7 +8,7 @@ class NewDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return ContentDialog(
-        title: Text('Create a new secure folder'),
+        title: const Text('Create a new secure folder'),
         content: Container(
           child: Column(
             children: [
@@ -19,7 +19,7 @@ class NewDialog extends StatelessWidget {
         ),
         actions: [
           ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 300),
+            constraints: const BoxConstraints(minWidth: 300),
             child: Center(
               child: Button(
                 child: Text(
@@ -36,10 +36,10 @@ class NewDialog extends StatelessWidget {
             ),
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 300),
+            constraints: const BoxConstraints(minWidth: 300),
             child: Center(
               child: Button(
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),

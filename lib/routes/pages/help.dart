@@ -11,7 +11,7 @@ class HelpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
-      header: Padding(
+      header: const Padding(
         padding: EdgeInsets.only(left: 20),
         child: Text(
           'Help & Credits',
@@ -19,24 +19,24 @@ class HelpPage extends StatelessWidget {
         ),
       ),
       content: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
         child: Container(
           child: ListView(
             children: [
               ExpanderWidget(
                 leading: CustomIcons.credits,
-                header: Text('Credits'),
-                content: Text(
+                header: const Text('Credits'),
+                content: const Text(
                     'All credits go to dhzdhd - owner of the app.\nDiscord: dhzdhd#2244'),
               ),
               ExpanderWidget(
                 leading: CustomIcons.license,
-                header: Text('License'),
+                header: const Text('License'),
                 content: Text(File('LICENSE').readAsStringSync()),
               ),
               ExpanderWidget(
                 leading: CustomIcons.changelog,
-                header: Text('Changelog'),
+                header: const Text('Changelog'),
                 content: Consumer<ThemeModel>(builder: (_, model, __) {
                   return MarkdownBody(
                     data: File('CHANGELOG.md').readAsStringSync(),

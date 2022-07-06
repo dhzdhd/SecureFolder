@@ -7,13 +7,13 @@ import 'package:secure_folder/widgets/new_dialog.dart';
 
 class NewPage extends StatelessWidget {
   final list = [
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e')),
-    FolderContainerWidget(child: Text('e'))
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e')),
+    FolderContainerWidget(child: const Text('e'))
   ];
 
   @override
@@ -21,14 +21,14 @@ class NewPage extends StatelessWidget {
     return ScaffoldPage(
       header: Row(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
               'Make a new secure folder',
               style: TextStyle(fontSize: 30),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: EdgeInsets.only(right: 20),
             child: SizedBox(
@@ -50,9 +50,9 @@ class NewPage extends StatelessWidget {
         ],
       ),
       content: Padding(
-        padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+        padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 5, mainAxisSpacing: 10, crossAxisSpacing: 10),
           itemCount: list.length,
           itemBuilder: (context, index) {

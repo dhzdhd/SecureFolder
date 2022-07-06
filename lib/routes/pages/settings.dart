@@ -29,7 +29,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return ScaffoldPage(
-        header: Padding(
+        header: const Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(
             'Settings',
@@ -37,109 +37,108 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
         content: Padding(
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-          child: Container(
-            child: Column(
-              children: [
-                Flexible(
-                  child: ExpanderWidget(
-                    leading: CustomIcons.palette,
-                    header: Text('Change theme'),
-                    content: Column(
-                      children: [
-                        Row(
+          padding:
+              const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+          child: Column(
+            children: [
+              Flexible(
+                child: ExpanderWidget(
+                  leading: CustomIcons.palette,
+                  header: const Text('Change theme'),
+                  content: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Expanded(child: Text('Switch theme')),
+                          SizedBox(
+                            width: 100,
+                            child: Combobox<Theme>(
+                              value: comboBoxValue,
+                              onChanged: (value) async {
+                                setState(() {
+                                  comboBoxValue = value;
+                                });
+                                if (value == Theme.light) {
+                                  Provider.of<ThemeModel>(context,
+                                          listen: false)
+                                      .changeTheme('light');
+                                } else {
+                                  Provider.of<ThemeModel>(context,
+                                          listen: false)
+                                      .changeTheme('dark');
+                                }
+                              },
+                              items: [
+                                ComboboxItem<Theme>(
+                                  value: Theme.light,
+                                  child: Text('Light'),
+                                ),
+                                ComboboxItem<Theme>(
+                                  value: Theme.dark,
+                                  child: Text('Dark'),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 40, bottom: 10),
+                        child: Row(
                           children: [
-                            Expanded(child: Text('Switch theme')),
+                            Expanded(child: Text('Accent color')),
                             SizedBox(
                               width: 100,
-                              child: Combobox<Theme>(
-                                value: comboBoxValue,
-                                onChanged: (value) async {
-                                  setState(() {
-                                    comboBoxValue = value;
-                                  });
-                                  if (value == Theme.light) {
-                                    Provider.of<ThemeModel>(context,
-                                            listen: false)
-                                        .changeTheme('light');
-                                  } else {
-                                    Provider.of<ThemeModel>(context,
-                                            listen: false)
-                                        .changeTheme('dark');
-                                  }
-                                },
-                                items: [
-                                  ComboboxItem<Theme>(
-                                    value: Theme.light,
-                                    child: Text('Light'),
-                                  ),
-                                  ComboboxItem<Theme>(
-                                    value: Theme.dark,
-                                    child: Text('Dark'),
-                                  ),
-                                ],
+                              child: Button(
+                                child: Text(
+                                  'Color',
+                                  style:
+                                      TextStyle(color: model.accentTextColor),
+                                ),
+                                onPressed: () => showDialog(
+                                    context: context,
+                                    builder: (context) =>
+                                        ColorDialogWidget('bg')),
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      ButtonState.all(model.accentColor),
+                                ),
                               ),
                             )
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 40, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(child: Text('Accent color')),
-                              SizedBox(
-                                width: 100,
-                                child: Button(
-                                  child: Text(
-                                    'Color',
-                                    style:
-                                        TextStyle(color: model.accentTextColor),
-                                  ),
-                                  onPressed: () => showDialog(
-                                      context: context,
-                                      builder: (context) =>
-                                          ColorDialogWidget('bg')),
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        ButtonState.all(model.accentColor),
-                                  ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 40, bottom: 10),
+                        child: Row(
+                          children: [
+                            Expanded(child: Text('Text accent color')),
+                            SizedBox(
+                              width: 100,
+                              child: Button(
+                                child: Text(
+                                  'Color',
+                                  style:
+                                      TextStyle(color: model.accentTextColor),
                                 ),
-                              )
-                            ],
-                          ),
+                                onPressed: () => showDialog(
+                                    context: context,
+                                    builder: (context) =>
+                                        ColorDialogWidget('text')),
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      ButtonState.all(model.accentColor),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 40, bottom: 10),
-                          child: Row(
-                            children: [
-                              Expanded(child: Text('Text accent color')),
-                              SizedBox(
-                                width: 100,
-                                child: Button(
-                                  child: Text(
-                                    'Color',
-                                    style:
-                                        TextStyle(color: model.accentTextColor),
-                                  ),
-                                  onPressed: () => showDialog(
-                                      context: context,
-                                      builder: (context) =>
-                                          ColorDialogWidget('text')),
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        ButtonState.all(model.accentColor),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );

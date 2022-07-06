@@ -13,7 +13,7 @@ class ExpanderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (_, model, __) {
       return Padding(
-        padding: EdgeInsets.only(bottom: 5),
+        padding: const EdgeInsets.only(bottom: 5),
         child: Expander(
           leading: leading,
           header: header,

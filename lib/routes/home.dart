@@ -16,7 +16,6 @@ class HomeRoute extends StatefulWidget {
 
 class _HomeRouteState extends State<HomeRoute> {
   final username = Platform.environment['USERNAME'] ?? 'Unknown user';
-  final Map<int, bool> indexedDict = {0: true, 1: false, 2: false, 3: false};
   int index = 0;
 
   @override
@@ -29,20 +28,21 @@ class _HomeRouteState extends State<HomeRoute> {
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return NavigationView(
-        contentShape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        contentShape:
+            const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         pane: NavigationPane(
           header: Padding(
-            padding: EdgeInsets.only(left: 15),
+            padding: const EdgeInsets.only(left: 15),
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: CustomIcons.profile,
                 ),
                 Expanded(
                   child: Text(
                     username.toString(),
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
               ],
@@ -51,29 +51,25 @@ class _HomeRouteState extends State<HomeRoute> {
           selected: index,
           onChanged: (i) => setState(() {
             index = i;
-            for (var _ = 0; _ < indexedDict.length; _++) {
-              indexedDict[_] = false;
-            }
-            indexedDict[i] = true;
           }),
           items: [
             PaneItem(
               icon: CustomIcons.new_,
-              title: Text('Make a new folder'),
+              title: const Text('Make a new folder'),
             ),
             PaneItem(
               icon: CustomIcons.addFolder,
-              title: Text('Add files to folder'),
+              title: const Text('Add files to folder'),
             ),
           ],
           footerItems: [
             PaneItem(
               icon: CustomIcons.help,
-              title: Text('Help'),
+              title: const Text('Help'),
             ),
             PaneItem(
               icon: CustomIcons.settings,
-              title: Text('Settings'),
+              title: const Text('Settings'),
             ),
           ],
         ),

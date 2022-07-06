@@ -4,7 +4,7 @@ class AddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
-      header: Padding(
+      header: const Padding(
         padding: EdgeInsets.only(left: 20),
         child: Text(
           'Add to existing folder',
