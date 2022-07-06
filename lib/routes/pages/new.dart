@@ -7,13 +7,10 @@ import 'package:secure_folder/widgets/new_dialog.dart';
 
 class NewPage extends StatelessWidget {
   final list = [
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e')),
-    FolderContainerWidget(child: const Text('e'))
+    'e',
+    'e',
+    'e',
+    'e',
   ];
 
   @override
@@ -30,7 +27,7 @@ class NewPage extends StatelessWidget {
           ),
           const Spacer(),
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.only(right: 20),
             child: SizedBox(
               width: 100,
               height: 40,
@@ -56,7 +53,7 @@ class NewPage extends StatelessWidget {
               crossAxisCount: 5, mainAxisSpacing: 10, crossAxisSpacing: 10),
           itemCount: list.length,
           itemBuilder: (context, index) {
-            return list[index];
+            return FolderContainerWidget(child: Text(list[index]));
           },
         ),
       ),

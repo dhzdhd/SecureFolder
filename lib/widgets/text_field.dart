@@ -3,34 +3,29 @@ import 'package:provider/provider.dart';
 import 'package:secure_folder/models/theme.dart';
 
 class TextFieldWidget extends StatefulWidget {
-  final title;
+  final String title;
+  final TextEditingController controller;
 
-  TextFieldWidget({required this.title});
+  TextFieldWidget({required this.title, required this.controller});
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
-  final textController = TextEditingController();
-
-  @override
-  void dispose() {
-    super.dispose();
-    textController.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: TextBox(
-          controller: textController,
+          controller: widget.controller,
           placeholder: this.widget.title,
           cursorColor: model.textColor,
-          style:
-              TextStyle(color: model.textColor, decorationColor: Colors.white),
+          style: TextStyle(
+            color: model.textColor,
+            decorationColor: Colors.white,
+          ),
         ),
       );
     });
